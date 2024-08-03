@@ -24,7 +24,7 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
-  "id": 15,
+  "id": 29,
   "links": [],
   "liveNow": false,
   "panels": [
@@ -44,7 +44,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "Ub43gsvVk"
+        "uid": "${datasource}"
       },
       "description": "Number of new WAL files created per second",
       "fieldConfig": {
@@ -53,6 +53,7 @@
             "mode": "palette-classic"
           },
           "custom": {
+            "axisBorderShow": false,
             "axisCenteredZero": false,
             "axisColorMode": "text",
             "axisLabel": "",
@@ -66,6 +67,7 @@
               "tooltip": false,
               "viz": false
             },
+            "insertNulls": false,
             "lineInterpolation": "linear",
             "lineWidth": 1,
             "pointSize": 5,
@@ -122,7 +124,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "Ub43gsvVk"
+            "uid": "${datasource}"
           },
           "editorMode": "builder",
           "expr": "rate(pbq_aligned_wal_files_total{namespace=\"$namespace\", pipeline=\"$pipeline\", vertex=\"$vertex\", replica=~\"$replica\"}[$__rate_interval])",
@@ -137,7 +139,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "Ub43gsvVk"
+        "uid": "${datasource}"
       },
       "description": "no. of new WAL entries written",
       "fieldConfig": {
@@ -146,6 +148,7 @@
             "mode": "palette-classic"
           },
           "custom": {
+            "axisBorderShow": false,
             "axisCenteredZero": false,
             "axisColorMode": "text",
             "axisLabel": "",
@@ -159,6 +162,7 @@
               "tooltip": false,
               "viz": false
             },
+            "insertNulls": false,
             "lineInterpolation": "linear",
             "lineWidth": 1,
             "pointSize": 5,
@@ -215,7 +219,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "Ub43gsvVk"
+            "uid": "${datasource}"
           },
           "editorMode": "builder",
           "exemplar": false,
@@ -244,7 +248,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "Ub43gsvVk"
+        "uid": "${datasource}"
       },
       "description": "WAL File Sync Wait Time in millisecond",
       "fieldConfig": {
@@ -253,6 +257,7 @@
             "mode": "palette-classic"
           },
           "custom": {
+            "axisBorderShow": false,
             "axisCenteredZero": false,
             "axisColorMode": "text",
             "axisLabel": "Milliseconds",
@@ -266,6 +271,7 @@
               "tooltip": false,
               "viz": false
             },
+            "insertNulls": false,
             "lineInterpolation": "linear",
             "lineWidth": 1,
             "pointSize": 5,
@@ -360,7 +366,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "Ub43gsvVk"
+            "uid": "${datasource}"
           },
           "editorMode": "builder",
           "expr": "histogram_quantile(0.99, sum by(le) (rate(pbq_aligned_wal_file_sync_wait_time_bucket{namespace=\"$namespace\", pipeline=\"$pipeline\", vertex=\"$vertex\", replica=~\"$replica\"}[$__rate_interval])))",
@@ -372,7 +378,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "Ub43gsvVk"
+            "uid": "${datasource}"
           },
           "editorMode": "builder",
           "expr": "histogram_quantile(0.95, sum by(le) (rate(pbq_aligned_wal_file_sync_wait_time_bucket{namespace=\"$namespace\", pipeline=\"$pipeline\", vertex=\"$vertex\", replica=~\"$replica\"}[$__rate_interval])))",
@@ -385,7 +391,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "Ub43gsvVk"
+            "uid": "${datasource}"
           },
           "editorMode": "builder",
           "expr": "histogram_quantile(0.9, sum by(le) (rate(pbq_aligned_wal_file_sync_wait_time_bucket{namespace=\"$namespace\", pipeline=\"$pipeline\", vertex=\"$vertex\", replica=~\"$replica\"}[$__rate_interval])))",
@@ -402,7 +408,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "Ub43gsvVk"
+        "uid": "${datasource}"
       },
       "description": "WAL Entry Write Time in millisecond",
       "fieldConfig": {
@@ -411,6 +417,7 @@
             "mode": "palette-classic"
           },
           "custom": {
+            "axisBorderShow": false,
             "axisCenteredZero": false,
             "axisColorMode": "text",
             "axisLabel": "Milliseconds",
@@ -424,6 +431,7 @@
               "tooltip": false,
               "viz": false
             },
+            "insertNulls": false,
             "lineInterpolation": "linear",
             "lineWidth": 1,
             "pointSize": 5,
@@ -518,7 +526,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "Ub43gsvVk"
+            "uid": "${datasource}"
           },
           "editorMode": "builder",
           "expr": "histogram_quantile(0.99, sum by(le) (rate(pbq_aligned_wal_entry_write_time_bucket{namespace=\"$namespace\", pipeline=\"$pipeline\", vertex=\"$vertex\", replica=~\"$replica\"}[$__rate_interval])))",
@@ -530,7 +538,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "Ub43gsvVk"
+            "uid": "${datasource}"
           },
           "editorMode": "builder",
           "expr": "histogram_quantile(0.95, sum by(le) (rate(pbq_aligned_wal_entry_write_time_bucket{namespace=\"$namespace\", pipeline=\"$pipeline\", vertex=\"$vertex\", replica=~\"$replica\"}[$__rate_interval])))",
@@ -543,7 +551,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "Ub43gsvVk"
+            "uid": "${datasource}"
           },
           "editorMode": "builder",
           "expr": "histogram_quantile(0.9, sum by(le) (rate(pbq_aligned_wal_entry_write_time_bucket{namespace=\"$namespace\", pipeline=\"$pipeline\", vertex=\"$vertex\", replica=~\"$replica\"}[$__rate_interval])))",
@@ -573,7 +581,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "Ub43gsvVk"
+        "uid": "${datasource}"
       },
       "fieldConfig": {
         "defaults": {
@@ -581,6 +589,7 @@
             "mode": "palette-classic"
           },
           "custom": {
+            "axisBorderShow": false,
             "axisCenteredZero": false,
             "axisColorMode": "text",
             "axisLabel": "",
@@ -594,6 +603,7 @@
               "tooltip": false,
               "viz": false
             },
+            "insertNulls": false,
             "lineInterpolation": "linear",
             "lineWidth": 1,
             "pointSize": 5,
@@ -615,7 +625,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": null
               },
               {
                 "color": "red",
@@ -650,7 +661,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "Ub43gsvVk"
+            "uid": "${datasource}"
           },
           "editorMode": "builder",
           "expr": "rate(pbq_aligned_wal_errors{namespace=\"$namespace\", pipeline=\"$pipeline\", vertex=\"$vertex\"}[$__rate_interval])",
@@ -679,7 +690,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "Ub43gsvVk"
+        "uid": "${datasource}"
       },
       "fieldConfig": {
         "defaults": {
@@ -687,6 +698,7 @@
             "mode": "palette-classic"
           },
           "custom": {
+            "axisBorderShow": false,
             "axisCenteredZero": false,
             "axisColorMode": "text",
             "axisLabel": "",
@@ -700,6 +712,7 @@
               "tooltip": false,
               "viz": false
             },
+            "insertNulls": false,
             "lineInterpolation": "linear",
             "lineWidth": 1,
             "pointSize": 5,
@@ -721,7 +734,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": null
               },
               {
                 "color": "red",
@@ -755,7 +769,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "Ub43gsvVk"
+            "uid": "${datasource}"
           },
           "editorMode": "builder",
           "expr": "pbq_aligned_active_wal_files_total{namespace=\"$namespace\", pipeline=\"$pipeline\", vertex=\"$vertex\"}",
@@ -769,8 +783,7 @@
     }
   ],
   "refresh": false,
-  "schemaVersion": 37,
-  "style": "dark",
+  "schemaVersion": 39,
   "tags": [],
   "templating": {
     "list": [
@@ -782,7 +795,7 @@
         },
         "datasource": {
           "type": "prometheus",
-          "uid": "Ub43gsvVk"
+          "uid": "${datasource}"
         },
         "definition": "label_values(namespace)",
         "hide": 0,
@@ -802,13 +815,14 @@
       },
       {
         "current": {
+          "isNone": true,
           "selected": false,
-          "text": "even-odd-sum",
-          "value": "even-odd-sum"
+          "text": "None",
+          "value": ""
         },
         "datasource": {
           "type": "prometheus",
-          "uid": "Ub43gsvVk"
+          "uid": "${datasource}"
         },
         "definition": "label_values({namespace=~\"$namespace\"}, pipeline)",
         "hide": 0,
@@ -828,13 +842,14 @@
       },
       {
         "current": {
+          "isNone": true,
           "selected": false,
-          "text": "compute-sum",
-          "value": "compute-sum"
+          "text": "None",
+          "value": ""
         },
         "datasource": {
           "type": "prometheus",
-          "uid": "Ub43gsvVk"
+          "uid": "${datasource}"
         },
         "definition": "label_values({namespace=~\"$namespace\", pipeline=~\"$pipeline\"}, vertex)",
         "hide": 0,
@@ -861,7 +876,7 @@
         },
         "datasource": {
           "type": "prometheus",
-          "uid": "Ub43gsvVk"
+          "uid": "${datasource}"
         },
         "definition": "label_values({namespace=~\"$namespace\", pipeline=~\"$pipeline\",vertex=~\"$vertex\"}, replica)",
         "hide": 0,
@@ -878,6 +893,25 @@
         "skipUrlSync": false,
         "sort": 0,
         "type": "query"
+      },
+      {
+        "current": {
+          "selected": true,
+          "text": "Prometheus",
+          "value": "prometheus"
+        },
+        "hide": 0,
+        "includeAll": false,
+        "label": "data source",
+        "multi": false,
+        "name": "datasource",
+        "options": [],
+        "query": "prometheus",
+        "queryValue": "",
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "type": "datasource"
       }
     ]
   },
@@ -889,6 +923,6 @@
   "timezone": "",
   "title": "wal-dashboard",
   "uid": "-4S8uggVzs",
-  "version": 25,
+  "version": 3,
   "weekStart": ""
 }
